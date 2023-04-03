@@ -1,10 +1,13 @@
-package com.example.Springbootexample;
+package com.example.Springbootexample.service;
 
+import com.example.Springbootexample.dto.NewCustomerRequest;
+import com.example.Springbootexample.entity.Customer;
+import com.example.Springbootexample.repoitory.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 

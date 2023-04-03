@@ -1,5 +1,8 @@
-package com.example.Springbootexample;
+package com.example.Springbootexample.controller;
 
+import com.example.Springbootexample.dto.NewCustomerRequest;
+import com.example.Springbootexample.entity.Customer;
+import com.example.Springbootexample.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

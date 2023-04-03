@@ -1,5 +1,6 @@
-package com.example.Springbootexample;
+package com.example.Springbootexample.repoitory;
 
+import com.example.Springbootexample.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

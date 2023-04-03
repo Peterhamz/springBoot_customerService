@@ -1,4 +1,4 @@
-package com.example.Springbootexample;
+package com.example.Springbootexample.dto;
 
 public class NewCustomerRequest {
     private String name;
