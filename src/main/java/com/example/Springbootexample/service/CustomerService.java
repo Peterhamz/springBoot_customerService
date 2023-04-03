@@ -15,4 +15,7 @@ public interface CustomerService {
     void deleteCustomer(Long customerId);
 
     void editCustomer(Long customerId, NewCustomerRequest request);
+
+    Customer getCustomerByName(String customerName);
 }
+

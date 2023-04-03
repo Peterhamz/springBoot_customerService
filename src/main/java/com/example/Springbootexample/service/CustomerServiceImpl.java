@@ -52,4 +52,8 @@ public class CustomerServiceImpl implements CustomerService {
          customerRepository.save(customer);
 
     }
+    @Override
+    public Customer getCustomerByName(String customerName) {
+        return customerRepository.findByName(customerName);
+    }
 }

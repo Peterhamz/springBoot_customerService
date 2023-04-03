@@ -37,10 +37,14 @@ public class CustomerController {
         return new ResponseEntity<>("Customer Deleted", HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping ("/editCustomer/{customerId}")
-    public ResponseEntity<String> editCustomer(@PathVariable("customerId") Long customerId, NewCustomerRequest request){
+    @PutMapping("/editCustomer/{customerId}")
+    public ResponseEntity<String> editCustomer(@PathVariable("customerId") Long customerId, @RequestBody  NewCustomerRequest request){
         customerService.editCustomer(customerId,request);
         return new ResponseEntity<>("Customer has been Updated", HttpStatus.OK);
+    }
+    @GetMapping("/getCustomer/name/{name}")
+    public Customer getCustomerByName(@PathVariable("name") String customerName){
+        return customerService.getCustomerByName(customerName);
     }
 
 }
