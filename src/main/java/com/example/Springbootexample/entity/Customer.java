@@ -1,6 +1,8 @@
 package com.example.Springbootexample.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Objects;
 @Entity
@@ -18,7 +20,10 @@ public class Customer {
 
     )
     private Long id;
+    @NotBlank(message = "Please provide a name")
     private String name;
+
+    @Email(message = "This is not a valid email")
     private String email;
     private Integer age;
 

@@ -2,11 +2,13 @@ package com.example.Springbootexample.controller;
 
 import com.example.Springbootexample.dto.NewCustomerRequest;
 import com.example.Springbootexample.entity.Customer;
+import com.example.Springbootexample.exception.CustomerNotFound;
 import com.example.Springbootexample.service.CustomerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -18,10 +20,20 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    private final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+
     @GetMapping("/getCustomer")
   public ResponseEntity<List<Customer>> getCustomers(){
         List<Customer> allCustomers = customerService.getCustomer();
+        logger.info("Inside fetchCustomers of Customer controller");
         return new ResponseEntity<>(allCustomers, HttpStatus.OK);
+    }
+    @GetMapping("/getCustomer/{Id}")
+    public Customer getCustomerById(@PathVariable("Id") Long customerId) throws CustomerNotFound {
+        Customer customerById = customerService.getCustomerById(customerId);
+        logger.info("Inside fetchCustomer by Id controller");
+        return customerById;
+
     }
 
 
