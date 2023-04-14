@@ -24,15 +24,14 @@ public class CustomerController {
 
     @GetMapping("/getCustomer")
   public ResponseEntity<List<Customer>> getCustomers(){
-        List<Customer> allCustomers = customerService.getCustomer();
         logger.info("Inside fetchCustomers of Customer controller");
-        return new ResponseEntity<>(allCustomers, HttpStatus.OK);
+        return new ResponseEntity<>(customerService.getCustomer(), HttpStatus.OK);
     }
     @GetMapping("/getCustomer/{Id}")
     public Customer getCustomerById(@PathVariable("Id") Long customerId) throws CustomerNotFound {
-        Customer customerById = customerService.getCustomerById(customerId);
+
         logger.info("Inside fetchCustomer by Id controller");
-        return customerById;
+        return  customerService.getCustomerById(customerId);
 
     }
 
