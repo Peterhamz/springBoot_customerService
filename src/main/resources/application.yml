@@ -78,3 +78,10 @@ spring:
       on-profile: qa
 welcome:
   message: Some Configuration Data
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "the endpoint to be excluded"
